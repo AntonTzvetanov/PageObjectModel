@@ -3,6 +3,7 @@ using NUnit.Framework;
 using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Remote;
 using POM.Pages;
 using System;
@@ -40,11 +41,18 @@ namespace POM
             ChromeOptions options = new ChromeOptions();
             options.BrowserVersion = "73.0";
             options.PlatformName = "windows";
-           // options.AddAdditionalCapability("platform","WIN10",true);
+            options.AddAdditionalCapability("platform","WIN10",true);
+            options.AddAdditionalCapability("version","latest",true);
+            options.AddAdditionalCapability("video","True",true);
 
             _remoteWebDriver = new RemoteWebDriver(new Uri(" http://10.0.21.84:4444/wd/hub"), options.ToCapabilities(), TimeSpan.FromSeconds(600));
             _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
 
+            FirefoxOptions firefox = new FirefoxOptions();
+            firefox.AddAdditionalCapability("platform","LINUX",true);
+            firefox.AddAdditionalCapability("version","latest",true);
+
+            _driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(30);
 
 
         }
