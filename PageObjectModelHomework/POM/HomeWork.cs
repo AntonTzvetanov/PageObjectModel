@@ -21,10 +21,6 @@ namespace POM
         private LoginPage _loginPage;
         private RemoteWebDriver _remoteWebDriver;
 
-
-        
-
-
         [SetUp]
 
         public void TestInit()
@@ -140,7 +136,6 @@ namespace POM
             _regPage.AssertLink("passwd is required.");
 
         }
-
 
 
 
