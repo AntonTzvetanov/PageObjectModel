@@ -37,6 +37,7 @@ namespace POM
             _user = UserFactory.LoginUser();
 
             _regPage = new RegistrationPage(_driver);
+            
 
             ChromeOptions options = new ChromeOptions();
             options.BrowserVersion = "73.0";
